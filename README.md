@@ -16,7 +16,7 @@ Full Skill instructions and API reference: [`SKILL.md`](./SKILL.md).
 | Field | Value |
 |-------|--------|
 | Name | `partnerboost-api` |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Tags | partnerboost, api, merchant |
 
 ## Prerequisites
@@ -42,31 +42,15 @@ npx skills add OWNER/partnerboost-brand
 
 Run `npx skills add --help` for flags such as `-g` / `--global` and `-a` / `--agent` (target Cursor, Claude Code, OpenCode, etc.).
 
-You still need **`PARTNERBOOST_API_KEY`** in your agent runtime (OpenClaw / QClaw JSON below, or your editor’s secrets / env UI).
+You still need **`PARTNERBOOST_API_KEY`** wherever your agent loads secrets (see **OpenClaw / QClaw** below, or your editor’s env / secrets UI).
 
 ### API key for OpenClaw-compatible clients
 
-For **OpenClaw** and **QClaw** (Tencent’s OpenClaw-based app), add the skill entry and env var in `~/.openclaw/openclaw.json`:
-
-```json5
-{
-  skills: {
-    entries: {
-      "partnerboost-api": {
-        env: {
-          PARTNERBOOST_API_KEY: "your-api-key-here"
-        }
-      }
-    }
-  }
-}
-```
-
-Adjust nesting if your file already has a `skills` block (merge `entries` instead of duplicating keys).
+**OpenClaw** and **QClaw** own config location and how env vars are passed. This Skill does not prescribe a file path or JSON schema—only that **`PARTNERBOOST_API_KEY`** is available when runs execute. Follow each client’s docs.
 
 ### OpenClaw
 
-Register this repo’s [`SKILL.md`](./SKILL.md) as the skill named **`partnerboost-api`** using your install’s workflow: extra skills directory, `skills.load.extraDirs`, a bundle, or sync from Git. See [OpenClaw Skills config](https://docs.openclaw.ai/tools/skills-config) for details.
+Register this repo’s [`SKILL.md`](./SKILL.md) as **`partnerboost-api`** using the flow described in [OpenClaw Skills config](https://docs.openclaw.ai/tools/skills-config).
 
 ### QClaw
 
@@ -74,8 +58,8 @@ Register this repo’s [`SKILL.md`](./SKILL.md) as the skill named **`partnerboo
 
 1. Install from [QClaw](https://qclaw.qq.com) and finish onboarding (channels, model, etc.).
 2. **Skills:** open **Skills** in the sidebar — install from ClawHub, or add this project as a **custom / GitHub-style** skill if your build supports it.
-3. For a local folder layout, place `SKILL.md` under your OpenClaw skills tree (e.g. `~/.openclaw/workspace/skills/partnerboost-api/SKILL.md`) and ensure that path is scanned (`load.extraDirs` or default workspace rules).
-4. Set **`PARTNERBOOST_API_KEY`** as in the JSON block above (QClaw uses the same OpenClaw config model).
+3. Add this Skill through the client’s UI or the custom-skill flow described in QClaw / OpenClaw documentation.
+4. Provide **`PARTNERBOOST_API_KEY`** exactly as your client documents (not duplicated here).
 
 Unofficial walkthrough (Chinese): [qclaw.run](https://www.qclaw.run/zh/) — e.g. [install guide](https://www.qclaw.run/zh/qclaw-anzhuang-jiaocheng/) (includes a **Skills** step).
 

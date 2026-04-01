@@ -16,7 +16,7 @@
 | 项 | 值 |
 |----|-----|
 | 名称 | `partnerboost-api` |
-| 版本 | 0.1.0 |
+| 版本 | 0.2.0 |
 | 标签 | partnerboost, api, merchant |
 
 ## 前置条件
@@ -46,27 +46,11 @@ npx skills add OWNER/partnerboost-brand
 
 ### OpenClaw / QClaw 共用：配置 API Key
 
-**OpenClaw** 与 **QClaw**（腾讯基于 OpenClaw 的桌面客户端）使用同一套配置模型。在 `~/.openclaw/openclaw.json` 中为 Skill 注入环境变量，例如：
-
-```json5
-{
-  skills: {
-    entries: {
-      "partnerboost-api": {
-        env: {
-          PARTNERBOOST_API_KEY: "your-api-key-here"
-        }
-      }
-    }
-  }
-}
-```
-
-若文件中已有 `skills` 段，请将 `entries` 合并进现有结构，避免重复顶层键。
+**OpenClaw** 与 **QClaw**（腾讯基于 OpenClaw 的桌面客户端）的配置位置、格式以及如何把环境变量注入到运行中的 Agent，**均由各客户端官方文档为准**。本 Skill **不写死**任何配置文件路径或 JSON 结构；唯一要求是执行 API 调用时环境中能读到 **`PARTNERBOOST_API_KEY`**。
 
 ### OpenClaw
 
-将本仓库中的 [`SKILL.md`](./SKILL.md) 按你的安装方式注册为名为 **`partnerboost-api`** 的 Skill（例如放到附加 Skills 目录、配置 `skills.load.extraDirs`、或使用打包/同步工具）。细则见 [OpenClaw Skills 配置](https://docs.openclaw.ai/zh-CN/tools/skills-config)。
+将本仓库中的 [`SKILL.md`](./SKILL.md) 注册为 **`partnerboost-api`**，具体步骤见 [OpenClaw Skills 配置](https://docs.openclaw.ai/zh-CN/tools/skills-config)。
 
 ### QClaw
 
@@ -74,8 +58,8 @@ npx skills add OWNER/partnerboost-brand
 
 1. 从 [QClaw 官网](https://qclaw.qq.com) 安装并完成引导（渠道、模型等）。
 2. **Skills**：在客户端左侧打开 **「Skills」**——可从 **ClawHub** 安装；若支持 **GitHub / 自定义技能**，按客户端说明添加本仓库或其中的 `SKILL.md`。
-3. **本地目录**：也可将 `SKILL.md` 放入 OpenClaw 会扫描的 skills 目录（常见为 `~/.openclaw/workspace/skills/partnerboost-api/SKILL.md`），并确保该路径在 `load.extraDirs` 或默认工作区规则下生效。
-4. **`PARTNERBOOST_API_KEY`**：与上一节 JSON 示例相同。
+3. 按 QClaw / OpenClaw 文档，通过界面或自定义技能流程添加本 Skill。
+4. **`PARTNERBOOST_API_KEY`**：严格按客户端文档配置（本文不重复具体写法）。
 
 非官方中文教程与安装步骤（含「安装第一个 Skill」）：[qclaw.run](https://www.qclaw.run/zh/) · [QClaw 安装教程](https://www.qclaw.run/zh/qclaw-anzhuang-jiaocheng/)。
 
