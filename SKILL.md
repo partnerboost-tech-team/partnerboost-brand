@@ -1,7 +1,7 @@
 ---
 name: partnerboost-api
 description: Call PartnerBoost merchant APIs to manage transactions, performance, billing, partners and more
-version: 0.2.0
+version: 1.1.0
 tags: [partnerboost, api, merchant]
 requires:
   env:

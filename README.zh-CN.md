@@ -16,7 +16,7 @@
 | 项 | 值 |
 |----|-----|
 | 名称 | `partnerboost-api` |
-| 版本 | 0.2.0 |
+| 版本 | 1.1.0 |
 | 标签 | partnerboost, api, merchant |
 
 ## 前置条件

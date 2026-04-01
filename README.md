@@ -16,7 +16,7 @@ Full Skill instructions and API reference: [`SKILL.md`](./SKILL.md).
 | Field | Value |
 |-------|--------|
 | Name | `partnerboost-api` |
-| Version | 0.2.0 |
+| Version | 1.1.0 |
 | Tags | partnerboost, api, merchant |
 
 ## Prerequisites
